@@ -1,0 +1,42 @@
+//program to check whether a number can be express as sum of two prime numbers.
+#include<iostream>
+using namespace std;
+int prime(int n);
+
+int main()
+{
+	int number,i,flag=0;
+	cout<<"Enter a positive integer:\t";
+	cin>>number;
+	for (i=2;i<=number/2;i++)
+	{
+		if(prime(i)==1)
+		{
+			if(prime(number-i)==1)
+			{
+			
+				cout<<number<<"="<<i<<"+"<<number-i<<"\n";
+                flag=1;
+  			}
+		}
+	}
+	if(flag==0)
+	{
+	 cout<<number<<"cannot be expressed as sum of 2 prime numbers";
+	}
+	return 0;
+}
+int prime(int n)
+{
+	int i,is_prime=1;
+	for(i=2;i<=n/2;i++)
+	{
+		if(n%i==0)
+		{
+			is_prime=0;
+			break;
+		}		
+	}
+	return is_prime;
+	
+}
